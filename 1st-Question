@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int ages[10];  // To store the number of peoples of this age group
+    for(int i = 0;i<10;i++){
+        ages[i] = 0;
+    }
+    int number_of_input = 5;   // Number of inputs provided
+    for(int i = 0;i<number_of_input;i++){
+        int age; cin>>age;
+        if(age%10==0) {
+            ages[(age / 10)-1] += 1;
+        }
+        else{
+            ages[age/10]+=1;
+        }
+    }
+    int i = 1;
+    for(auto x:ages){
+        cout<<i<<"-";
+        i+=9;
+        cout<<i<<'\t'<<" ";
+        i++;
+        cout<<x<<'\n';
+    }
+
+    return 0;
+}
