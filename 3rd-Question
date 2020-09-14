@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int nodes = 4;                             //  Size of matrix
+int arr[][4] = { { 1, 1, 1 , 1 },        // Array of matrix
+                  { 0 , 0 , 1 , 1 },
+                  { 1 , 0 , 1 , 1 },
+                  { 1 , 1 , 0 , 1 },
+                  };
+int vis[4][4];
+
+void dfs(int i, int j);
+
+int main() {
+    for(int i = 0;i<nodes;i++){
+        for(int j= 0;j<nodes;j++){
+            vis[i][j] = false;
+            if(!arr[i][j]){
+                vis[i][j] = true;            // If element is zero then mark it visited
+            }
+        }
+    }
+    int ans = 0;
+    for(int i = 0;i<nodes;i++){
+        for(int j = 0;j<nodes;j++){
+            if(!vis[i][j]){
+                dfs(i,j);              // If element is not visited then start dfs from that point
+                ans++;
+            }
+        }
+    }
+    cout<<ans;
+
+    return 0;
+}
+
+void dfs(int i, int j) {
+    vis[i][j] = true;
+    // Mark all its adjacent elements as Visited
+    // Diagonal elements are not considered as adjacent elements in this
+    if(i-1>-1){
+        if(arr[i-1][j]){
+            if(!vis[i-1][j]) {
+                dfs(i - 1, j);
+            }
+        }
+    }
+    if(i+1<nodes){
+        if(arr[i+1][j]){
+            if(!vis[i+1][j]) {
+                dfs(i + 1, j);
+            }
+        }
+    }
+    if(j-1>-1){
+        if(arr[i][j-1]){
+            if(!vis[i][j-1]) {
+                dfs(i, j - 1);
+            }
+        }
+    }
+    if(j+1<nodes){
+        if(arr[i][j+1]){
+            if(!vis[i][j+1]) {
+                dfs(i, j + 1);
+            }
+        }
+    }
+
+}
