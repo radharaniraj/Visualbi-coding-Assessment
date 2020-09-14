@@ -18,3 +18,15 @@ int main()
 
 	return 0; 
 } 
+
+//Here are some other Approaches by which we can solve this problem
+So, basically i know these 3 approach to solve this problem . Find my these approach
+
+1. I solved this problem by simply approach like break the given array in two parts separated by 'k' and then simply prints the second part before and then the first part.
+
+2. One other solution can be - Take a new array and then divide the given array into two parts as i discussed in approach 1, and the strore the arrays element in that new array and then print the new array.
+
+3. We can also solve this problem using recursion by making functions.
+
+4. one more approach is to rotate all the elements of the array in k steps by rotating the elements by 1 unit in each step.
+
